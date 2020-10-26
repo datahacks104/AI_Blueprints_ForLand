@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Detect Land</title>
+
+        <!--Css and Javascript files-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+        <script type="text/javascript">
+        </script>
+        <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,300,500" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+    </head>
+
+    <body>
+    <div id="block">
+    <!----      Navigation Bar          -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand active" href="http://127.0.0.1:5000">AI Blueprint<span class="sr-only">(current)</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('upload') }}">Detect Land</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#About_us">About us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <p class="heading">Land Detection and Map Plotting</p>
+        <!--  Container  -->
+        <div class="container">s
+           
+            <div class="form_div">
+
+                <input type="file" name="file[]" multiple="true" hidden="true" class="click_upload">
+                <div class="dropzone" id="dropzone">Drop files here to upload or <span class="upload">Click here</span></div>
+                <hr>
+                <div class="gallery">
+                </div>
+                <hr>
+                <input type="button" class="land_button" value="Detect Land">
+                <div id="loading">
+                <img src="{{ url_for('static', filename = 'loading.gif') }}" />
+                <div>Image is being generated</div>
+                </div>
+                <hr>
+                <div class="result">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Style CSS -->
+
+    <style>
+    body {
+    background-color: #30384C;
+  }
+
+  .heading
+  {
+  font-size: 50px;
+  color: green;
+  margin-left: 23%;
+  }
+  .container {
+  length : 80%;
+  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.95);
+  margin-top: 50px !important;
+  margin-left: 200px;
+  position: relative;
+  --borderWidth: 3px;
+  background: #1D1F20;
+  position: relative;
+  border-radius: var(--borderWidth);
+  }
+  .container:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+
+  .dd-container,
+  .uf-container,
+  .dt-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: inherit;
+  }
+
+  .dt-container {
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .uf-container {
+    z-index: 1;
+    opacity: 0;
+  }
+
+  .dd-container {
+    z-index: 2;
+  }
+
+  .dd-container {
+    position: center !important;
+    left: 0;
+    height: inherit;
+  }
+
+  .dd-card,
+  .uf-card,
+  .dt-card {
+    height: inherit;
+    top: -8px !important;
+  }
+
+  .dd-card {
+    background-color: #F5F5F1 !important;
+    border-radius: 8px;
+  }
+
+  .dd-card {
+    background-color: #F5F5F1 !important;
+    border-radius: 8px;
+    top: -8px !important;
+  }
+
+  .dt-card {
+    overflow-y: auto;
+  }
+
+  #drop-container {
+    height: 500px;
+    border-style: solid;
+    border-color: #34495E;
+    border-radius: 4px;
+  }
+
+  .upload-icon {
+    color: #34495E;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -125%);
+  }
+
+</style>
+
+    </body>
+
+</html>

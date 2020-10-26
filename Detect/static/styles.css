@@ -1,0 +1,86 @@
+body{
+background-color: #30384C;
+  font-family: "Arial", sans-serif
+}
+
+.dropzone{
+  width: 100%;
+  height: 300px;
+  margin-top: 10%;
+  border: 3px;
+  color:#ccc;
+  line-height: 300px;
+  text-align: center;
+}
+
+.dropzone.dragover{
+  border-color: red;
+  color: red;
+}
+.upload{
+  text-decoration: underline;
+  color: red;
+}
+.upload:hover{
+  color: blue;
+  cursor: pointer;
+}
+.gallery, .result{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.image_div{
+  padding: 5px;
+  height: 300px;
+  width: auto;
+}
+.image{
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image_result{
+  width: 100%;
+  margin-top: 10%;
+  height: auto;
+  padding: 5px;
+}
+#loading{
+  display: none;
+  text-align: center;
+  margin-top: 75px;
+}
+
+.land_images{
+  width: 100%;
+  height: auto;
+}
+
+.land_button{
+  background-color: green;
+  margin-top: 10px;
+  border-radius: 15px;
+  padding: 15px 32px;
+  box-shadow: none;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  float: right;
+  border:none;
+}
+.land_button:focus{
+  outline: none;
+}
+.blueprint_button{
+  display: none;
+}
+#blueprint{
+  float: right;
+}
+hr{
+  background-color: white;
+  color: white;
+}
