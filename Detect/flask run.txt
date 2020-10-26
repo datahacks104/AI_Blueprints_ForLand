@@ -1,0 +1,4 @@
+open cmd 
+set FLASK_APP=main.py
+
+flask run
